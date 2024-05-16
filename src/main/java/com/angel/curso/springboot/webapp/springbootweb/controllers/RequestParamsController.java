@@ -3,6 +3,7 @@ package com.angel.curso.springboot.webapp.springbootweb.controllers;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.angel.curso.springboot.webapp.springbootweb.models.dto.ParamDto;
+import com.angel.curso.springboot.webapp.springbootweb.models.dto.ParamMixDto;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,4 +20,14 @@ public class RequestParamsController {
         param.setMessage(message);
         return param;
     }
+
+    @GetMapping("/bar")
+    public ParamMixDto bar(@RequestParam String text, @RequestParam Integer code) {
+        
+        ParamMixDto params = new ParamMixDto();
+        params.setMessage(text);
+        params.setCode(code);
+        return params;
+    }
+    
 }
